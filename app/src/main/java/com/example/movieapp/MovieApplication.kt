@@ -15,9 +15,9 @@ class MovieApplication : Application() {
         initKoin()
     }
 
+    // initialize koin
     private fun initKoin() {
 
-        //initialize koin
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@MovieApplication)
