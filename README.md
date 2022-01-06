@@ -1,1 +1,1 @@
-##MovieApp App to show a list of movies
+##MovieApp App to display a list of latest movies
