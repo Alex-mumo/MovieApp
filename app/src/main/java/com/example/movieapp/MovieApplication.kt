@@ -1,26 +1,27 @@
 package com.example.movieapp
 
 import android.app.Application
+import com.example.movieapp.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import java.util.logging.Logger
+import org.koin.core.logger.Level
+
 
 class MovieApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        initTheme()
+        //initTheme()
         initKoin()
     }
 
-    private fun initTheme() {
-
-    }
-
     private fun initKoin() {
-        //val modules =  listOf()
+
+        //initialize koin
         startKoin {
+            androidLogger(Level.DEBUG)
             androidContext(this@MovieApplication)
+            modules(listOf(domainModule))
         }
     }
 }
