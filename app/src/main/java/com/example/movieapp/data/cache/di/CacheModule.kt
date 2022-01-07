@@ -10,7 +10,7 @@ val cacheModule = module {
         Room.databaseBuilder(
             androidApplication(),
             AppDatabase::class.java,
-            "app.db"
+            "moviedb.db"
         ).fallbackToDestructiveMigration().build()
     }
 }

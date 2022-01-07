@@ -8,6 +8,8 @@ data class MoviesEntity (
     @PrimaryKey(autoGenerate = true)
     val id: String,
 
+    val name: String?,
+
     val image: String?,
 
     val title: String?,
