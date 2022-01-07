@@ -1,4 +1,4 @@
-package com.example.movieapp.ui.adapters
+package com.example.movieapp.presentation.ui.adapters
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +10,13 @@ class MovieRecyclerViewAdapter constructor(private val movies: List<Movies>) : R
         TODO("Not yet implemented")
     }
 
+    //display the data at specified position
     override fun onBindViewHolder(holder: MovieRecyclerViewHolder, position: Int) {
         TODO()
     }
 
     override fun getItemCount(): Int {
-        TODO()
-
+        return movies.size
     }
 }
 
