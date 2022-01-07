@@ -31,7 +31,6 @@ fun provideOkhttp(): OkHttpClient {
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
-
 }
 
 
