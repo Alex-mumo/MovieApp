@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 import android.app.Application
+import com.example.movieapp.data.cache.di.cacheModule
 import com.example.movieapp.data.network.di.networkModule
 import com.example.movieapp.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
@@ -22,7 +23,7 @@ class MovieApplication : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@MovieApplication)
-            modules(listOf(domainModule, networkModule))
+            modules(listOf(domainModule, networkModule, cacheModule))
         }
     }
 }
