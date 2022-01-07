@@ -13,7 +13,7 @@ class MovieViewModel(private val getMovies: FetchMovies) : ViewModel() {
         getMovies()
     }
 
-    private val _getMovies = MutableStateFlow<>()
+
 
     private fun getMovies(){
         viewModelScope.launch {
