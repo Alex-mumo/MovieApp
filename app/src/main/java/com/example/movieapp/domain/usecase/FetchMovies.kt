@@ -4,5 +4,5 @@ import com.example.movieapp.domain.repository.MovieRepository
 
 
 class FetchMovies constructor(private val movieRepository: MovieRepository)  {
-    suspend  operator fun invoke(id: Int) = movieRepository.getMovies(id)
+    suspend  operator fun invoke(id: String) = movieRepository.getMovies(id)
 }
