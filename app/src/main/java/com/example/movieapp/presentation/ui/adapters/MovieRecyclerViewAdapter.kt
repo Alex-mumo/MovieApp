@@ -2,7 +2,6 @@ package com.example.movieapp.presentation.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -39,10 +38,15 @@ class MovieRecyclerViewAdapter constructor(
 
 class MovieRecyclerViewHolder(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(context: Context?, movieItem: Movies) {
-        Glide.with(context)
-            .load(movieItem.image)
-            .transition(DrawableTransitionOptions.withCrossFade(400))
-            .into()
+        if (context != null) {
+            Glide.with(context)
+                .load(movieItem.image)
+                .transition(DrawableTransitionOptions.withCrossFade(400))
+                .into(binding.imageView)
+        }
+        binding.category.text = movieItem.category
+        binding.name.text
+        binding.title.text = movieItem.category
 
     }
 

@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/font/fonts.xml" value="0.2234375" />
+        <entry key="app/src/main/res/font/roboto_bold.xml" value="0.2234375" />
+        <entry key="app/src/main/res/font/roboto_medium.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/font/roboto_regular.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.19322916666666667" />
