@@ -15,4 +15,5 @@ data class MoviesEntity (
     val title: String?,
 
     val category: String?
+
 )
