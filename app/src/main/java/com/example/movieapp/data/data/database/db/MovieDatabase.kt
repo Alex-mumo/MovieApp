@@ -6,7 +6,6 @@ import com.example.movieapp.data.data.database.dao.MovieDao
 import com.example.movieapp.data.data.database.entity.Movie
 
 @Database(entities = [Movie::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase() {
-
+abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
 }
