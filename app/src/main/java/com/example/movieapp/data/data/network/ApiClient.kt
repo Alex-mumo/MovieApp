@@ -1,4 +1,4 @@
-package com.example.movieapp.data.network
+package com.example.movieapp.data.data.network
 
 interface ApiClient {
 

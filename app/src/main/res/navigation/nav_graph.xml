@@ -3,11 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/movieFragment">
+    app:startDestination="@id/splashFragment">
+
 
     <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.movieapp.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/movieFragment"
-        android:name="com.example.movieapp.presentation.ui.fragments.MovieFragment"
-        android:label="Movie List"
-        tools:layout="@layout/fragment_movie" />
+        android:name="com.example.movieapp.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.movieapp.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
 </navigation>

@@ -1,10 +1,10 @@
-package com.example.movieapp.data.data.dao
+package com.example.movieapp.data.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.movieapp.data.data.entity.Movie
+import com.example.movieapp.data.data.database.entity.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao
