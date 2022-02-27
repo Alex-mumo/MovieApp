@@ -13,21 +13,20 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-interface DatabaseModule {
+object DatabaseModule {
 
     @Singleton
     @Provides
-    fun providesDatabase(@ApplicationContext context: Context): MovieDatabase {
-        return Room.databaseBuilder(
+    fun providesDatabase(@ApplicationContext context: Context): MovieDatabase =
+        Room.databaseBuilder(
             context,
             MovieDatabase::class.java,
             "movie_db"
         ).build()
-    }
 
     @Singleton
     @Provides
-    fun providesDao(movieDatabase: MovieDatabase): MovieDao {
-        return movieDatabase.movieDao()
-    }
+    fun providesDao(movieDatabase: MovieDatabase): MovieDao =
+        movieDatabase.movieDao()
+
 }
