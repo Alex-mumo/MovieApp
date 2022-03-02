@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/movieFragment">
 
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.movieapp.data.ui.fragment.SplashFragment"
-        android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_movieFragment"
@@ -18,7 +17,7 @@
     <fragment
         android:id="@+id/movieFragment"
         android:name="com.example.movieapp.data.ui.fragment.MovieFragment"
-        android:label="fragment_movie"
+        android:label="Movie Fragment"
         tools:layout="@layout/fragment_movie" >
         <action
             android:id="@+id/action_movieFragment_to_detailFragment"
@@ -27,7 +26,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.movieapp.data.ui.fragment.DetailFragment"
-        android:label="fragment_detail"
+        android:label="Detail Fragment"
         tools:layout="@layout/fragment_detail" >
         <action
             android:id="@+id/action_detailFragment_to_movieFragment"

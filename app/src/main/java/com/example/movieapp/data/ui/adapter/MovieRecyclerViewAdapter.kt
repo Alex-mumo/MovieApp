@@ -9,6 +9,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.movieapp.data.data.database.entity.Movie
 import com.example.movieapp.data.ui.fragment.MovieFragmentDirections
+import com.example.movieapp.data.utils.loadImage
 import com.example.movieapp.databinding.MovieItemBinding
 
 class MovieRecyclerViewAdapter(
@@ -25,7 +26,7 @@ class MovieRecyclerViewAdapter(
 
         val context = holder.itemView.context
         Glide.with(context)
-            .load(movie.poster_path)
+            .load(loadImage(movie.poster_path))
             .transition(DrawableTransitionOptions.withCrossFade())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(imageurl)

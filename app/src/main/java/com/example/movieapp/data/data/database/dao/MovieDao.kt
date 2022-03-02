@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
+    /*Data Access Objects*/
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveMovies(movie: List<Movie>)
 

@@ -2,15 +2,14 @@ package com.example.movieapp.data.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.movieapp.R
 import com.example.movieapp.data.data.database.entity.Movie
+import com.example.movieapp.data.utils.loadImage
 import com.example.movieapp.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +25,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         movie = args.movie
 
         Glide.with(this)
-            .load(movie.poster_path)
+            .load(loadImage(movie.poster_path))
             .transition(DrawableTransitionOptions.withCrossFade())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.imageBanner)

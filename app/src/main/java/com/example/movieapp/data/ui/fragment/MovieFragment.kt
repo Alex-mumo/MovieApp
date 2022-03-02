@@ -47,10 +47,10 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                     }
                 }
                 is Resource.Error -> {
-                    Timber.d("Network error")
+                    Timber.d("Failed to fetch")
                 }
                 else -> {
-                    Timber.d("Failed")
+                    Timber.d("Network error")
                 }
             }
         })
