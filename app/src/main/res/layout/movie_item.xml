@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     app:cardCornerRadius="20dp"
+    android:id="@+id/movieCardView"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -22,27 +23,30 @@
 
         <TextView
             android:id="@+id/title"
+            android:textColor="@color/black"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/imageurl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title"/>
+            android:text="Title"/>
 
 
         <TextView
             android:id="@+id/release_date"
+            android:textColor="@color/black"
             android:layout_toEndOf="@id/imageurl"
             android:layout_marginTop="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/release_date"/>
+            android:text="Release Date"/>
 
         <TextView
             android:id="@+id/average"
             android:layout_toEndOf="@id/imageurl"
             android:layout_marginTop="80dp"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/average" />
+            android:text="Average" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

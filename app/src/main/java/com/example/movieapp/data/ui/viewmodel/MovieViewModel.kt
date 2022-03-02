@@ -5,9 +5,11 @@ import com.example.movieapp.data.data.database.entity.Movie
 import com.example.movieapp.data.data.network.MovieResponse
 import com.example.movieapp.data.data.repository.MovieRepository
 import com.example.movieapp.data.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class MovieViewModel @Inject constructor(
     private val movieRepository: MovieRepository
     ): ViewModel() {

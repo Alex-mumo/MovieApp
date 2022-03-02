@@ -1,8 +1,12 @@
 package com.example.movieapp.data.data.database.entity
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+
+@Parcelize
 @Entity(tableName = "movie_table")
 data class Movie(
     @PrimaryKey(autoGenerate = true)
@@ -20,4 +24,4 @@ data class Movie(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+): Parcelable
