@@ -14,6 +14,7 @@
         <ImageView
             android:id="@+id/image_banner"
             android:layout_margin="10dp"
+            android:background="@drawable/ic_library"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
@@ -29,8 +30,9 @@
 
                 <TextView
                     android:id="@+id/title_detail"
-                    android:text="Mortal Compat"
+                    android:text="@string/mortal_compat"
                     android:textSize="16sp"
+                    android:textColor="@color/black"
                     android:layout_margin="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -38,8 +40,9 @@
                 <TextView
                     android:id="@+id/overview"
                     android:layout_below="@+id/title_detail"
-                    android:text="Mortal Compat"
+                    android:text="@string/mortal_compat"
                     android:textSize="16sp"
+                    android:textColor="@color/black"
                     android:layout_margin="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -47,9 +50,10 @@
                 <TextView
                     android:id="@+id/release_Date"
                     android:layout_below="@+id/overview"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textSize="16sp"
                     android:layout_margin="8dp"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </RelativeLayout>

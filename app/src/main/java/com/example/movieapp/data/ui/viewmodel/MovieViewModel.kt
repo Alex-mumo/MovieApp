@@ -26,6 +26,6 @@ class MovieViewModel @Inject constructor(
 
     fun fetchMovies() = viewModelScope.launch {
         _movieResponse.value = Resource.Loading
-        _movieResponse.value = movieRepository.getMovies()
+        _movieResponse.value = movieRepository.getMovies("apiKey")
     }
 }

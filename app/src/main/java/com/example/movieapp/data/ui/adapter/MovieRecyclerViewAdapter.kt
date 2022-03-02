@@ -35,9 +35,7 @@ class MovieRecyclerViewAdapter(
             val action = MovieFragmentDirections.actionMovieFragmentToDetailFragment(movie)
             Navigation.findNavController(it).navigate(action)
         }
-
     }
-
     override fun getItemCount() = movies.size
 
     class MovieViewHolder(val binding: MovieItemBinding): RecyclerView.ViewHolder(binding.root)

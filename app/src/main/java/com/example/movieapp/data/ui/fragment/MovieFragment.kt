@@ -29,7 +29,6 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
 
         initRecyclerView()
         initMovies()
-        viewModel.fetchMovies()
     }
 
     private fun initRecyclerView() {
@@ -56,11 +55,6 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
             }
         })
     }
-    // Api key
-    //fd65c1178171ce0d12871600b495fa47
-    // Example API request
-    //https://api.themoviedb.org/3/movie/550?api_key=fd65c1178171ce0d12871600b495fa47
-
     private fun recyclerViewMovies(movies: List<Movie>) {
         binding.movieRecycler.apply {
             layoutManager = LinearLayoutManager(requireActivity())

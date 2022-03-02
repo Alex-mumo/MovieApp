@@ -11,22 +11,19 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    @Singleton
     @Provides
+    @Singleton
     fun providesDatabase(@ApplicationContext context: Context): MovieDatabase =
-        Room.databaseBuilder(
-            context,
-            MovieDatabase::class.java,
-            "movie_db"
-        ).build()
+        Room.databaseBuilder(context, MovieDatabase::class.java, "movie_db")
+            .fallbackToDestructiveMigration()
+            .build()
 
-    @Singleton
     @Provides
+    @Singleton
     fun providesDao(movieDatabase: MovieDatabase): MovieDao =
         movieDatabase.movieDao()
-
 }

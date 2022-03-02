@@ -6,4 +6,7 @@
     <string name="release_date">Release Date</string>
     <string name="title">Title</string>
     <string name="average">Average</string>
+    <string name="date">Date</string>
+    <string name="mortal_compat">Mortal Compat</string>
+
 </resources>

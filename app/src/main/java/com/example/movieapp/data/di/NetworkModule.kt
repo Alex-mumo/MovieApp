@@ -10,19 +10,20 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
-    @Singleton
+
     @Provides
+    @Singleton
     fun providesRetrofit(): Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    @Singleton
     @Provides
+    @Singleton
     fun providesApiClient(retrofit: Retrofit): ApiClient =
         retrofit.create(ApiClient::class.java)
 }

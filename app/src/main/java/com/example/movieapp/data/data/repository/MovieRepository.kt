@@ -18,7 +18,7 @@ class MovieRepository @Inject constructor(
         return movieDao.getMovies()
     }
 
-    suspend fun getMovies() = safeApiCall {
-        apiClient.fetchMovies()
+    suspend fun getMovies(key: String) = safeApiCall {
+        apiClient.fetchMovies(key)
     }
 }
