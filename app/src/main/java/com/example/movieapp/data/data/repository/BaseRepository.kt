@@ -3,7 +3,6 @@ package com.example.movieapp.data.data.repository
 import com.example.movieapp.data.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 import retrofit2.HttpException
 
 abstract class BaseRepository {
