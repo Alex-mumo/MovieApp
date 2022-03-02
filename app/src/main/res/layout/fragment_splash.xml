@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:layout_centerInParent="true"
         android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:text="@string/movieapp"
         android:padding="10dp"/>
+
 </RelativeLayout>

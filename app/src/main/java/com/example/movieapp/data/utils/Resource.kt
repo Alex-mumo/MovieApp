@@ -3,8 +3,6 @@ package com.example.movieapp.data.utils
 import okhttp3.ResponseBody
 
 sealed class Resource<out T> {
-    //val data: T? = null,
-    //val message: String? = null){
 
     data class Success<out T>(
         val value: T

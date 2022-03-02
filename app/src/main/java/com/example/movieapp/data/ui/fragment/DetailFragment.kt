@@ -35,13 +35,4 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         binding.releaseDate.text = movie.release_date
         binding.overview.text = movie.overview
     }
-    /*
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
-    */
 }

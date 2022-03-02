@@ -11,12 +11,12 @@ import com.example.movieapp.R
 import com.example.movieapp.data.data.database.entity.Movie
 import com.example.movieapp.data.ui.adapter.MovieRecyclerViewAdapter
 import com.example.movieapp.data.ui.viewmodel.MovieViewModel
-import com.example.movieapp.data.utils.Constants.API_KEY
 import com.example.movieapp.data.utils.Resource
 import com.example.movieapp.databinding.FragmentMovieBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
+
 
 @AndroidEntryPoint
 class MovieFragment : Fragment(R.layout.fragment_movie) {
@@ -25,21 +25,20 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding = FragmentMovieBinding.bind(view)
 
-        observeMovies()
+        initRecyclerView()
+        initMovies()
         viewModel.fetchMovies()
-        observeOffline()
     }
 
-    private fun observeOffline() {
+    private fun initRecyclerView() {
         viewModel.getMovies.observe(viewLifecycleOwner, {
             recyclerViewMovies(it)
         })
     }
 
-    private fun observeMovies() {
+    private fun initMovies() {
         viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
             when(it){
                 is Resource.Success ->{

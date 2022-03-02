@@ -18,7 +18,6 @@ class MovieViewModel @Inject constructor(
     val movieResponse: LiveData<Resource<MovieResponse>>
     get() = _movieResponse
 
-    //convert flow to live data
     var getMovies = movieRepository.fetchMoviesDb().asLiveData()
 
     fun saveMovies(movie: List<Movie>) = viewModelScope.launch{
