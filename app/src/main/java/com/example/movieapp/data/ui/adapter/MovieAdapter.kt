@@ -12,16 +12,18 @@ import com.example.movieapp.data.ui.fragment.MovieFragmentDirections
 import com.example.movieapp.data.utils.loadImage
 import com.example.movieapp.databinding.MovieItemBinding
 
-class MovieRecyclerViewAdapter(
+class MovieAdapter(
     private val movies: List<Movie>
-    ) : RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder>() {
+    ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder (
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
         MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
+    override fun getItemCount() = movies.size
+
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) = with(holder.binding) {
+
         val movie = movies[position]
 
         val context = holder.itemView.context
@@ -31,15 +33,14 @@ class MovieRecyclerViewAdapter(
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(imageurl)
 
-
         title.text = movie.title
         releaseDate.text = movie.release_date
-        movieCardView.setOnClickListener{
+        average.text = movie.vote_count.toString()
+
+        movieCardView.setOnClickListener {
             val action = MovieFragmentDirections.actionMovieFragmentToDetailFragment(movie)
             Navigation.findNavController(it).navigate(action)
         }
     }
-    override fun getItemCount() = movies.size
-
-    class MovieViewHolder(val binding: MovieItemBinding): RecyclerView.ViewHolder(binding.root)
+    class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
 }
