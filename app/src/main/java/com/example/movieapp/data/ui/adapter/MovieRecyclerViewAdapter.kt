@@ -30,6 +30,8 @@ class MovieRecyclerViewAdapter(
             .transition(DrawableTransitionOptions.withCrossFade())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(imageurl)
+
+
         title.text = movie.title
         releaseDate.text = movie.release_date
         movieCardView.setOnClickListener{

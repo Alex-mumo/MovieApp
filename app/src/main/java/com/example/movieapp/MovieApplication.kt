@@ -10,7 +10,10 @@ class MovieApplication: Application() {
         super.onCreate()
         initTimber()
     }
+
     private fun initTimber() {
-        Timber.plant(Timber.DebugTree())
+        if (BuildConfig.DEBUG){
+            Timber.plant(Timber.DebugTree())
+        }
     }
 }
