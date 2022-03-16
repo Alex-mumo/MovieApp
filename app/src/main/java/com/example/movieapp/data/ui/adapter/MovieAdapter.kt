@@ -3,35 +3,43 @@ package com.example.movieapp.data.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.movieapp.R
+
 import com.example.movieapp.data.data.database.entity.Movie
 import com.example.movieapp.data.ui.fragment.MovieFragmentDirections
-import com.example.movieapp.data.utils.loadImage
+import com.example.movieapp.data.utils.MovieComparator
 import com.example.movieapp.databinding.MovieItemBinding
 
-class MovieAdapter(
-    private val movies: List<Movie>
-    ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter: ListAdapter<Movie,MovieAdapter.MovieViewHolder>(
+    MovieComparator()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
-        MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-    )
+    inner class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(movie: Movie) {
+            Glide.with(binding.imageurl)
+                .load(movie.backdrop_path)
+                .placeholder(R.drawable.ic_launcher_background)
+                .centerCrop()
+                .into(binding.imageurl)
+        }
+    }
 
-    override fun getItemCount() = movies.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        val movieItemBinding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MovieViewHolder(movieItemBinding)
+    }
+
+    override fun getItemCount() = currentList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) = with(holder.binding) {
 
-        val movie = movies[position]
+        val movie = getItem(position)
+        holder.itemView.setOnClickListener {
 
-        val context = holder.itemView.context
-        Glide.with(context)
-            .load(loadImage(movie.poster_path))
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(imageurl)
+        }
+        holder.bind(movie)
 
         title.text = movie.title
         releaseDate.text = movie.release_date
@@ -42,5 +50,5 @@ class MovieAdapter(
             Navigation.findNavController(it).navigate(action)
         }
     }
-    class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root)
+
 }

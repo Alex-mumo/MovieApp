@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieapp.R
 import com.example.movieapp.data.data.database.entity.Movie
+import com.example.movieapp.data.data.network.MovieResponse
 import com.example.movieapp.data.ui.adapter.MovieAdapter
 
 import com.example.movieapp.data.ui.viewmodel.MovieViewModel
@@ -23,62 +24,67 @@ import timber.log.Timber
 
 @AndroidEntryPoint
 class MovieFragment : Fragment(R.layout.fragment_movie) {
-    private var _binding: FragmentMovieBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMovieBinding
     private lateinit var movieAdapter: MovieAdapter
-    private val viewModel by viewModels<MovieViewModel>()
+    private val viewModel: MovieViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMovieBinding.inflate(inflater, container, false)
+        binding = FragmentMovieBinding.inflate(inflater, container, false)
+
+        viewModel.movieResponse.value?.let { subscribeObserver() }
         return binding.root
-        //return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-       // binding = FragmentMovieBinding.bind(view)
+    private fun subscribeObserver() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            when {
 
-        initRecyclerView()
-        initMovies()
-    }
-
-    private fun initRecyclerView() {
-        viewModel.getMovies.observe(viewLifecycleOwner, {
-            recyclerViewMovies(it)
-        })
-    }
-
-    private fun initMovies() {
-        viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
-            when(it){
-                is Resource.Success ->{
-                    lifecycleScope.launch {
-                        viewModel.saveMovies(it.value.results)
-                        recyclerViewMovies(it.value.results)
-                    }
-                }
-                is Resource.Error -> {
-                    Timber.d("Failed to fetch")
-                }
-                else -> {
-                    Timber.d("Network error")
-                }
             }
-        })
-    }
-    private fun recyclerViewMovies(movies: List<Movie>) {
-
-        binding.movieRecycler.apply {
-            movieAdapter = MovieAdapter(movies)
-            adapter = movieAdapter
-            hasFixedSize()
-            binding.movieRecycler.adapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
-
     }
 }
+
+
+
+/*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+   // binding = FragmentMovieBinding.bind(view)
+
+    initRecyclerView()
+    initMovies()
+}
+
+
+
+private fun initRecyclerView() {
+    viewModel.getMovies.observe(viewLifecycleOwner, {
+        recyclerViewMovies(it)
+    })
+}
+
+ */
+
+/*
+private fun initMovies() {
+    viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
+        when(it){
+            is Resource.Success ->{
+                lifecycleScope.launch {
+                    viewModel.saveMovies(it.value.results)
+                    recyclerViewMovies(it.value.results)
+                }
+            }
+            is Resource.Error -> {
+                Timber.d("Failed to fetch")
+            }
+            else -> {
+                Timber.d("Network error")
+            }
+        }
+    })
+}
+*/

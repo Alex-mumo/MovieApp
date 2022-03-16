@@ -18,14 +18,14 @@ class MovieViewModel @Inject constructor(
     val movieResponse: LiveData<Resource<MovieResponse>>
     get() = _movieResponse
 
-    var getMovies = movieRepository.fetchMoviesDb().asLiveData()
+    //var getMovies = movieRepository.fetchMoviesDb().asLiveData()
 
     fun saveMovies(movie: List<Movie>) = viewModelScope.launch{
         movieRepository.saveMovie(movie)
     }
 
     fun fetchMovies() = viewModelScope.launch {
-        _movieResponse.value = Resource.Loading
+
         _movieResponse.value = movieRepository.getMovies("apiKey")
     }
 }
