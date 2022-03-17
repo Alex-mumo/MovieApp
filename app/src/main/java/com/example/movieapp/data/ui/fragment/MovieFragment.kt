@@ -35,56 +35,21 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
     ): View {
         binding = FragmentMovieBinding.inflate(inflater, container, false)
 
-        viewModel.movieResponse.value?.let { subscribeObserver() }
+        subscribeObserver()
+        setUpAdapter()
         return binding.root
+    }
+
+    private fun setUpAdapter() {
+        binding.movieRecycler.apply {
+            adapter = movieAdapter
+        }
+
     }
 
     private fun subscribeObserver() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            when {
-
-            }
+            viewModel.fetchMovies()
         }
     }
 }
-
-
-
-/*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-   // binding = FragmentMovieBinding.bind(view)
-
-    initRecyclerView()
-    initMovies()
-}
-
-
-
-private fun initRecyclerView() {
-    viewModel.getMovies.observe(viewLifecycleOwner, {
-        recyclerViewMovies(it)
-    })
-}
-
- */
-
-/*
-private fun initMovies() {
-    viewModel.movieResponse.observe(viewLifecycleOwner, Observer {
-        when(it){
-            is Resource.Success ->{
-                lifecycleScope.launch {
-                    viewModel.saveMovies(it.value.results)
-                    recyclerViewMovies(it.value.results)
-                }
-            }
-            is Resource.Error -> {
-                Timber.d("Failed to fetch")
-            }
-            else -> {
-                Timber.d("Network error")
-            }
-        }
-    })
-}
-*/
