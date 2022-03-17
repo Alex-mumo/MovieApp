@@ -1,6 +1,6 @@
-package com.example.movieapp.data.data.network
+package com.example.movieapp.data.data.cache.network
 
-import com.example.movieapp.data.data.database.entity.Movie
+import com.example.movieapp.data.data.cache.database.entity.Movie
 
 data class MovieResponse(
     val results: List<Movie>

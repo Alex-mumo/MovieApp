@@ -1,6 +1,6 @@
 package com.example.movieapp.data.di
 
-import com.example.movieapp.data.data.network.ApiClient
+import com.example.movieapp.data.data.cache.network.ApiClient
 import com.example.movieapp.data.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

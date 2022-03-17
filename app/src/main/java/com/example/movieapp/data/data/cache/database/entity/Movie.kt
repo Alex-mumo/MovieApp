@@ -1,27 +1,15 @@
-package com.example.movieapp.data.data.database.entity
+package com.example.movieapp.data.data.cache.database.entity
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
 
-
-@Parcelize
 @Entity(tableName = "movie_table")
 data class Movie(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val adult: Boolean,
-    val backdrop_path: String,
-    //val genre_ids: List<Int>,
-    val original_language: String,
-    val original_title: String,
-    val overview: String,
-    val popularity: Double,
-    val poster_path: String,
-    val release_date: String,
-    val title: String,
-    val video: Boolean,
-    val vote_average: Double,
-    val vote_count: Int
-): Parcelable
+    val id: String,
+    val imDbRating: String?,
+    val imDbRatingCount: String?,
+    val image: String?,
+    val title: String?,
+    val category: String?
+)
