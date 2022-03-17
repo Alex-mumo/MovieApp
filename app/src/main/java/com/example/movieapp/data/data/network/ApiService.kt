@@ -1,15 +1,21 @@
 package com.example.movieapp.data.data.network
 
-import com.example.movieapp.data.data.cache.database.entity.MovieResponse
-import com.example.movieapp.data.utils.Constants.API_KEY
+import com.example.movieapp.data.data.network.models.CastResponseDto
+import com.example.movieapp.data.data.network.models.MovieResponseDto
+import com.example.movieapp.data.utils.Constants
 import retrofit2.http.GET
-import retrofit2.http.Query
-
-//k_7kgz4rka
-
+import retrofit2.http.Path
 
 interface ApiService {
-    @GET("movie/popular")
+    @GET("MostPopularMovies/{apiKey}")
     suspend fun fetchMovies(
-        @Query("apiKey") apiKey: String = API_KEY): MovieResponse
+        @Path("apiKey")
+        apiKey: String = Constants.API_KEY
+    ): MovieResponseDto
+
+    @GET("FullCast/{apiKey}/{id}")
+    suspend fun fetchCast(
+        @Path("apiKey")
+        apiKey: String = Constants.API_KEY
+    ): CastResponseDto
 }
