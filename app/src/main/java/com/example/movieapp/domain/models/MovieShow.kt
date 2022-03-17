@@ -1,6 +1,6 @@
 package com.example.movieapp.domain.models
 
-data class Movie(
+data class MovieShow(
     val id: String,
     val imDbRating: String?,
     val imDbRatingCount: String?,

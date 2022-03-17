@@ -1,7 +1,7 @@
 package com.example.movieapp.data.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.example.movieapp.data.data.cache.database.entity.Movie
+import com.example.movieapp.data.cache.database.entity.Movie
 import com.example.movieapp.data.cache.repository.MovieRepository
 import com.example.movieapp.data.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

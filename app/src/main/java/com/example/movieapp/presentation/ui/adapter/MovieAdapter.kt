@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
 
-import com.example.movieapp.data.data.cache.database.entity.Movie
+import com.example.movieapp.data.cache.database.entity.Movie
 import com.example.movieapp.data.utils.MovieComparator
 import com.example.movieapp.databinding.MovieItemBinding
 

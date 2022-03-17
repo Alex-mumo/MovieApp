@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.movieapp.data.data.cache.database.converters.MovieConverter
 import com.example.movieapp.data.data.cache.database.dao.MovieDao
-import com.example.movieapp.data.data.cache.database.entity.Movie
+import com.example.movieapp.data.cache.database.entity.Movie
 
 @Database(
     entities = [Movie::class],
