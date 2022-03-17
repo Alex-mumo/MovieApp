@@ -1,4 +1,4 @@
-package com.example.movieapp.data.data.cache.database.dao
+package com.example.movieapp.data.cache.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -17,4 +17,7 @@ interface MovieDao {
 
     @Query("DELETE FROM movie_table WHERE category=:category")
     suspend fun deleteMovie(category: String)
+
+    @Query("SELECT COUNT(*) FROM movie_table WHERE category=:category")
+    suspend fun isCacheAvailable(category: String? = null): Int
 }

@@ -2,7 +2,7 @@ package com.example.movieapp.data.cache.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.movieapp.data.data.cache.database.dao.MovieDao
+import com.example.movieapp.data.cache.database.dao.MovieDao
 import com.example.movieapp.data.data.cache.database.db.MovieDatabase
 import dagger.Module
 import dagger.Provides
