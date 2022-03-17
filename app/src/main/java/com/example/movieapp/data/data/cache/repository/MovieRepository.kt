@@ -2,7 +2,7 @@ package com.example.movieapp.data.data.cache.repository
 
 import com.example.movieapp.data.data.cache.database.db.MovieDatabase
 import com.example.movieapp.data.data.cache.database.entity.Movie
-import com.example.movieapp.data.data.cache.network.ApiClient
+import com.example.movieapp.data.data.network.ApiClient
 import com.example.movieapp.data.utils.Resource
 import com.example.movieapp.data.utils.SafeApiRequest
 import kotlinx.coroutines.flow.Flow

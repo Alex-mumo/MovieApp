@@ -5,8 +5,10 @@ import com.example.movieapp.data.utils.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+//k_7kgz4rka
 
-interface ApiClient {
+
+interface ApiService {
     @GET("movie/popular")
     suspend fun fetchMovies(
         @Query("apiKey") apiKey: String = API_KEY): MovieResponse
