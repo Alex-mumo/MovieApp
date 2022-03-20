@@ -1,22 +1,39 @@
-package com.example.movieapp.data.ui.viewmodel
+package com.example.movieapp.presentation.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.example.movieapp.data.cache.database.entity.Movie
-import com.example.movieapp.data.cache.repository.MovieRepository
-import com.example.movieapp.data.utils.Resource
+import com.example.movieapp.domain.usecases.GetMovieUseCase
+import com.example.movieapp.presentation.utils.Resource
+
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
-class MovieViewModel @Inject constructor(
-    private val movieRepository: MovieRepository
-    ): ViewModel() {
+class MovieViewModel @Inject constructor(private val getMovieUseCase: GetMovieUseCase): ViewModel() {
 
-    //private val _movieResponse: MutableLiveData<Resource<MovieResponse>> = MutableLiveData()
-    //val movieResponse: LiveData<Resource<MovieResponse>>
+    private val _popularMovies = MutableStateFlow<Resource>(Resource.Loading)
+    val popularMovies: StateFlow<Resource> = _popularMovies
 
-    suspend fun fetchMovies(query: String): Flow<Resource<List<Movie>>> {
-        return movieRepository.fetchMovies(query)
+    init {
+        getPopularMovies()
+    }
+
+    private fun getPopularMovies() = viewModelScope.launch {
+        try {
+            val response = getMovieUseCase.invoke()
+            response.collect {
+                _popularMovies.value = Resource.Success(it)
+            }
+        } catch (e: HttpException) {
+
+        } catch (e: IOException) {
+
+        }
+
     }
 }

@@ -10,8 +10,9 @@ import com.example.movieapp.R
 import com.example.movieapp.data.cache.database.entity.Movie
 import com.example.movieapp.data.utils.MovieComparator
 import com.example.movieapp.databinding.MovieItemBinding
+import com.example.movieapp.domain.models.MovieShow
 
-class MovieAdapter(onClickListener: OnClickListener) : ListAdapter<Movie,MovieAdapter.MovieViewHolder>(
+class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie,MovieAdapter.MovieViewHolder>(
     MovieComparator()) {
 
     inner class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -35,9 +36,6 @@ class MovieAdapter(onClickListener: OnClickListener) : ListAdapter<Movie,MovieAd
 
         }
         holder.bind(movie)
-    }
-    class OnClickListener(val clickListener: (movie: Movie) -> Unit) {
-        fun onClick(movie: Movie) = clickListener(movie)
     }
     override fun getItemCount() = currentList.size
 }

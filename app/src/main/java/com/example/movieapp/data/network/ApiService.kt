@@ -2,7 +2,7 @@ package com.example.movieapp.data.data.network
 
 import com.example.movieapp.data.data.network.models.CastResponseDto
 import com.example.movieapp.data.data.network.models.MovieResponseDto
-import com.example.movieapp.data.utils.Constants
+import com.example.movieapp.presentation.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
 

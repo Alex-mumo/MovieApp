@@ -1,10 +1,9 @@
-package com.example.movieapp.data.utils
+package com.example.movieapp.presentation.utils
 
-sealed class Resource<T>(
-    val data: T? = null,
-    val message: String? = null
-) {
-    class Success<T>(data: T) : Resource<T>(data)
-    class Loading<T>(data: T? = null) : Resource<T>(data)
-    class Error<T>(message: String?, data: T? = null) : Resource<T>(data, message)
+import com.example.movieapp.domain.models.MovieShow
+
+sealed class Resource {
+    object Loading : Resource()
+    data class Success(val data: List<MovieShow>): Resource()
+    data class Error(val error: String): Resource()
 }

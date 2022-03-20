@@ -1,6 +1,7 @@
 package com.example.movieapp.domain.di
 
 import com.example.movieapp.domain.repositories.DetailRepository
+import com.example.movieapp.domain.repositories.MovieRepository
 import com.example.movieapp.domain.usecases.GetCastUseCase
 import com.example.movieapp.domain.usecases.GetMovieUseCase
 import dagger.Module
@@ -20,6 +21,7 @@ object DomainModule {
 
     @Provides
     @Singleton
-    fun providesMovieUseCase(detailRepository: DetailRepository) =
-        GetMovieUseCase(detailRepository)
+    fun providesMovieUseCase(movieRepository: MovieRepository) =
+        GetMovieUseCase(movieRepository)
+
 }
