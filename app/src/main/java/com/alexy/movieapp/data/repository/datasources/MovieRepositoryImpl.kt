@@ -11,9 +11,8 @@ import com.alexy.movieapp.domain.models.MovieShow
 import com.alexy.movieapp.domain.repositories.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
-class MovieRepositoryImpl @Inject constructor(
+class MovieRepositoryImpl  constructor(
     private val movieDatabase: MovieDatabase,
     private val apiService: ApiService): MovieRepository{
     private val _popularMovies = MutableLiveData<List<Movie>>()

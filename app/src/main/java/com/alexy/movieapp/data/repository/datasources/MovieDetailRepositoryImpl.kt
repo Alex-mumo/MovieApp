@@ -8,9 +8,9 @@ import com.alexy.movieapp.domain.models.MovieShow
 import com.alexy.movieapp.domain.repositories.DetailRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
-class MovieDetailRepositoryImpl @Inject constructor(
+
+class MovieDetailRepositoryImpl constructor(
     private val apiService: ApiService,
     private val movieDatabase: MovieDatabase): DetailRepository {
 

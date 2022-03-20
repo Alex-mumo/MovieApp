@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/purple_200"
     android:theme="@style/Theme.Design.NoActionBar"
-    tools:context="data.ui.fragment.SplashFragment">
+    tools:context=".presentation.ui.fragment.SplashFragment">
 
     <TextView
         android:id="@+id/textView"

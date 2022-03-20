@@ -1,4 +1,4 @@
-package com.alexy.movieapp.data.ui.adapter
+package com.alexy.movieapp.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.alexy.movieapp.data.utils.MovieComparator
 import com.alexy.movieapp.databinding.MovieItemBinding
 import com.alexy.movieapp.domain.models.MovieShow
 
-class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie,MovieAdapter.MovieViewHolder>(
+class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(
     MovieComparator()) {
 
     inner class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -39,11 +39,3 @@ class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie,Movi
     }
     override fun getItemCount() = currentList.size
 }
-
-
-
-
-/*movieCardView.setOnClickListener {
-    val action = MovieFragmentDirections.actionMovieFragmentToDetailFragment(movie)
-    Navigation.findNavController(it).navigate(action)
-}*/

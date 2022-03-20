@@ -24,9 +24,10 @@ class MovieViewModel constructor(private val getMovieUseCase: GetMovieUseCase): 
                 _popularMovies.value = Resource.Success(it)
             }
         } catch (e: HttpException) {
+            _popularMovies.value = Resource.Error(e.localizedMessage?: "Internet")
 
         } catch (e: IOException) {
-
+            _popularMovies.value = Resource.Error(e.localizedMessage?: "unknown")
         }
 
     }
