@@ -1,30 +1,14 @@
 package com.example.movieapp.data.cache.di
 
-import android.content.Context
 import androidx.room.Room
-import com.example.movieapp.data.cache.database.dao.MovieDao
 import com.example.movieapp.data.data.cache.database.db.MovieDatabase
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import org.koin.android.ext.koin.androidApplication
+import org.koin.dsl.module
 
-@InstallIn(SingletonComponent::class)
-@Module
-object CacheModule {
 
-    @Provides
-    @Singleton
-    fun providesDatabase(@ApplicationContext context: Context): MovieDatabase {
-        return Room.databaseBuilder(context, MovieDatabase::class.java, "movie_db")
-            .fallbackToDestructiveMigration()
-            .build()
-    }
-    @Provides
-    @Singleton
-    fun providesData(movieDatabase: MovieDatabase): MovieDao {
-        return movieDatabase.movieDao()
+val cacheModule = module {
+    single {
+        Room.databaseBuilder(androidApplication(), MovieDatabase::class.java, "movies.db"
+        ).build()
     }
 }
