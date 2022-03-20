@@ -14,6 +14,7 @@ val networkModule = module {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(providesOkHttp())
             .build()
             .create(ApiService::class.java)
     }
