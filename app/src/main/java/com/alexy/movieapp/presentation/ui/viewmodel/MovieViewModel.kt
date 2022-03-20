@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import java.net.UnknownHostException
+
 class MovieViewModel constructor(private val getMovieUseCase: GetMovieUseCase): ViewModel() {
 
     private val _popularMovies = MutableStateFlow<Resource>(Resource.Loading)
@@ -23,11 +25,11 @@ class MovieViewModel constructor(private val getMovieUseCase: GetMovieUseCase): 
             response.collect {
                 _popularMovies.value = Resource.Success(it)
             }
-        } catch (e: HttpException) {
-            _popularMovies.value = Resource.Error(e.localizedMessage?: "Internet")
+        } catch (e: UnknownHostException) {
+            _popularMovies.value = Resource.Error(e.localizedMessage ?: "Internet")
 
         } catch (e: IOException) {
-            _popularMovies.value = Resource.Error(e.localizedMessage?: "unknown")
+            _popularMovies.value = Resource.Error(e.localizedMessage ?: "unknown")
         }
 
     }

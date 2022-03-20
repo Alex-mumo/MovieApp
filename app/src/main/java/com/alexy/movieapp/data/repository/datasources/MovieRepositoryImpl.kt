@@ -4,11 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import com.alexy.movieapp.data.cache.database.entity.Movie
 import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
 import com.alexy.movieapp.data.data.network.ApiService
-import com.alexy.movieapp.data.data.repository.utils.Coroutines
+import com.alexy.movieapp.data.repository.utils.Coroutines
 import com.alexy.movieapp.data.repository.mapper.toDomain
 import com.alexy.movieapp.data.repository.mapper.toEntity
 import com.alexy.movieapp.domain.models.MovieShow
 import com.alexy.movieapp.domain.repositories.MovieRepository
+import com.alexy.movieapp.presentation.utils.Constants.POPULAR_MOVIE
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -27,18 +28,15 @@ class MovieRepositoryImpl  constructor(
     }
 
     override suspend fun fetchMovies(): Flow<List<MovieShow>> {
-        val isCacheAvailable = movieDatabase.movieDao().isCacheAvailable(category = "MostPopularTVs") > 0
+        val isCacheAvailable = movieDatabase.movieDao().isCacheAvailable(category = POPULAR_MOVIE) > 0
         return if (isCacheAvailable) {
-            val cacheResponse = movieDatabase.movieDao().fetchMovies(category = "MostPopularTVs")
+            val cacheResponse = movieDatabase.movieDao().fetchMovies(category = POPULAR_MOVIE)
             cacheResponse.map { it.map { movieList -> movieList.toDomain() } }
         } else {
             val networkResponse = apiService.fetchMovies()
-            _popularMovies.value = networkResponse.movies?.map { it.toEntity(category = "MostPopularTVs") }
-            val cacheResponse = movieDatabase.movieDao().fetchMovies(category = "MostPopularTVs")
+            _popularMovies.value = networkResponse.movies?.map { it.toEntity(category = POPULAR_MOVIE) }
+            val cacheResponse = movieDatabase.movieDao().fetchMovies(category = POPULAR_MOVIE)
             cacheResponse.map { it.map { movieList -> movieList.toDomain() } }
         }
     }
 }
-
-
-//https://imdb-api.com/en/API/MostPopularTVs/k_7kgz4rka
