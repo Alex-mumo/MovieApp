@@ -1,36 +1,33 @@
-package com.example.movieapp.data.data.network.di
+package com.example.movieapp.data.network.di
 
 import com.example.movieapp.data.data.network.ApiService
-import com.example.movieapp.presentation.utils.Constants
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import com.example.movieapp.presentation.utils.Constants.BASE_URL
+import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
+import java.util.concurrent.TimeUnit
 
-@InstallIn(SingletonComponent::class)
-@Module
-object NetworkModule {
-    @Provides
-    @Singleton
-    fun providesRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+val networkModule = module {
+    single {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+            .create(ApiService::class.java)
     }
+}
 
-    fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
+fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+}
 
-    @Provides
-    @Singleton
-    fun providesApiClient(retrofit: Retrofit): ApiService {
-        return retrofit.create(ApiService::class.java)
-    }
-
+fun providesOkHttp(): OkHttpClient {
+    return OkHttpClient.Builder()
+        .addInterceptor(providesHttpLoggingInterceptor())
+        .callTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .build()
 }
