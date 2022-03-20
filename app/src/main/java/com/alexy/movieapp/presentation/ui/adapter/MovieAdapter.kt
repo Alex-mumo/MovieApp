@@ -1,16 +1,16 @@
-package com.example.movieapp.data.ui.adapter
+package com.alexy.movieapp.data.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.movieapp.R
+import com.alexy.movieapp.R
 
-import com.example.movieapp.data.cache.database.entity.Movie
-import com.example.movieapp.data.utils.MovieComparator
-import com.example.movieapp.databinding.MovieItemBinding
-import com.example.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.utils.MovieComparator
+import com.alexy.movieapp.databinding.MovieItemBinding
+import com.alexy.movieapp.domain.models.MovieShow
 
 class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie,MovieAdapter.MovieViewHolder>(
     MovieComparator()) {

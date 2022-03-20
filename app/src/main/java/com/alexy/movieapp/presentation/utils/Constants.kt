@@ -1,4 +1,4 @@
-package com.example.movieapp.presentation.utils
+package com.alexy.movieapp.presentation.utils
 
 object Constants{
     const val BASE_URL = "https://api.themoviedb.org/3/"

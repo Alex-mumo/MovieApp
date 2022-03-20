@@ -1,9 +1,9 @@
-package com.example.movieapp.data.repository.di
+package com.alexy.movieapp.data.repository.di
 
-import com.example.movieapp.data.repository.datasources.MovieDetailRepositoryImpl
-import com.example.movieapp.data.repository.datasources.MovieRepositoryImpl
-import com.example.movieapp.domain.repositories.DetailRepository
-import com.example.movieapp.domain.repositories.MovieRepository
+import com.alexy.movieapp.data.repository.datasources.MovieDetailRepositoryImpl
+import com.alexy.movieapp.data.repository.datasources.MovieRepositoryImpl
+import com.alexy.movieapp.domain.repositories.DetailRepository
+import com.alexy.movieapp.domain.repositories.MovieRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {

@@ -1,11 +1,10 @@
-package com.example.movieapp.presentation.ui.fragment
+package com.alexy.movieapp.presentation.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.navigation.fragment.navArgs
-import com.example.movieapp.R
-import com.example.movieapp.databinding.FragmentDetailBinding
+import com.alexy.movieapp.R
+import com.alexy.movieapp.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

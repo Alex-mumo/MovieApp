@@ -1,4 +1,4 @@
-package com.example.movieapp.domain.models
+package com.alexy.movieapp.domain.models
 
 data class Actor(
     val asCharacter: String?,

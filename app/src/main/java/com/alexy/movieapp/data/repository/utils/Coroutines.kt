@@ -1,4 +1,4 @@
-package com.example.movieapp.data.data.repository.utils
+package com.alexy.movieapp.data.data.repository.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

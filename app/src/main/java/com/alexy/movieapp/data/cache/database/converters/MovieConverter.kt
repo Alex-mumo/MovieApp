@@ -1,7 +1,7 @@
-package com.example.movieapp.data.data.cache.database.converters
+package com.alexy.movieapp.data.data.cache.database.converters
 
 import androidx.room.TypeConverter
-import com.example.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.cache.database.entity.Movie
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

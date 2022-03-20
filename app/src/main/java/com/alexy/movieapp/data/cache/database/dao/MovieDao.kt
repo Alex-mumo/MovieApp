@@ -1,10 +1,10 @@
-package com.example.movieapp.data.cache.database.dao
+package com.alexy.movieapp.data.cache.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.cache.database.entity.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Dao

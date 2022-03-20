@@ -1,21 +1,19 @@
-package com.example.movieapp.presentation.ui.fragment
+package com.alexy.movieapp.presentation.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.movieapp.R
-import com.example.movieapp.data.ui.adapter.MovieAdapter
-import com.example.movieapp.presentation.ui.viewmodel.MovieViewModel
-import com.example.movieapp.databinding.FragmentMovieBinding
-import com.example.movieapp.domain.models.MovieShow
-import com.example.movieapp.presentation.utils.Resource
+import com.alexy.movieapp.R
+import com.alexy.movieapp.data.ui.adapter.MovieAdapter
+import com.alexy.movieapp.presentation.ui.viewmodel.MovieViewModel
+import com.alexy.movieapp.databinding.FragmentMovieBinding
+import com.alexy.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.presentation.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

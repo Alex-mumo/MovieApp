@@ -1,6 +1,6 @@
-package com.example.movieapp.domain.di
+package com.alexy.movieapp.domain.di
 
-import com.example.movieapp.domain.usecases.GetMovieUseCase
+import com.alexy.movieapp.domain.usecases.GetMovieUseCase
 import org.koin.dsl.module
 
 val domainModule = module {

@@ -1,4 +1,4 @@
-package com.example.movieapp.data.cache.database.entity
+package com.alexy.movieapp.data.cache.database.entity
 
 
 data class MovieResponse(

@@ -1,13 +1,12 @@
-package com.example.movieapp.presentation.ui.viewmodel
+package com.alexy.movieapp.presentation.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.example.movieapp.domain.usecases.GetMovieUseCase
-import com.example.movieapp.presentation.utils.Resource
+import com.alexy.movieapp.domain.usecases.GetMovieUseCase
+import com.alexy.movieapp.presentation.utils.Resource
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException

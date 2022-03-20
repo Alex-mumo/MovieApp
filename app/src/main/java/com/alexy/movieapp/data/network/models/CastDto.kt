@@ -1,4 +1,4 @@
-package com.example.movieapp.data.data.network.models
+package com.alexy.movieapp.data.data.network.models
 
 data class CastDto (
     val asCharacter: String?,

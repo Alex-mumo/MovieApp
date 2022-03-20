@@ -1,14 +1,14 @@
-package com.example.movieapp.data.repository.datasources
+package com.alexy.movieapp.data.repository.datasources
 
 import androidx.lifecycle.MutableLiveData
-import com.example.movieapp.data.cache.database.entity.Movie
-import com.example.movieapp.data.data.cache.database.db.MovieDatabase
-import com.example.movieapp.data.data.network.ApiService
-import com.example.movieapp.data.data.repository.utils.Coroutines
-import com.example.movieapp.data.repository.mapper.toDomain
-import com.example.movieapp.data.repository.mapper.toEntity
-import com.example.movieapp.domain.models.MovieShow
-import com.example.movieapp.domain.repositories.MovieRepository
+import com.alexy.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
+import com.alexy.movieapp.data.data.network.ApiService
+import com.alexy.movieapp.data.data.repository.utils.Coroutines
+import com.alexy.movieapp.data.repository.mapper.toDomain
+import com.alexy.movieapp.data.repository.mapper.toEntity
+import com.alexy.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.domain.repositories.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

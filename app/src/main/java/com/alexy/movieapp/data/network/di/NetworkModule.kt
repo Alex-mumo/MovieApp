@@ -1,7 +1,7 @@
-package com.example.movieapp.data.network.di
+package com.alexy.movieapp.data.network.di
 
-import com.example.movieapp.data.data.network.ApiService
-import com.example.movieapp.presentation.utils.Constants.BASE_URL
+import com.alexy.movieapp.data.data.network.ApiService
+import com.alexy.movieapp.presentation.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

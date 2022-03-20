@@ -1,6 +1,6 @@
-package com.example.movieapp.domain.repositories
+package com.alexy.movieapp.domain.repositories
 
-import com.example.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.domain.models.MovieShow
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {

@@ -1,7 +1,7 @@
-package com.example.movieapp.data.repository.mapper
+package com.alexy.movieapp.data.repository.mapper
 
-import com.example.movieapp.data.cache.database.entity.Movie
-import com.example.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.domain.models.MovieShow
 
 
 internal fun Movie.toDomain(): MovieShow {

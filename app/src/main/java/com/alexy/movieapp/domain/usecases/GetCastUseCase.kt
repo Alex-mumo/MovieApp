@@ -1,6 +1,6 @@
-package com.example.movieapp.domain.usecases
+package com.alexy.movieapp.domain.usecases
 
-import com.example.movieapp.domain.repositories.DetailRepository
+import com.alexy.movieapp.domain.repositories.DetailRepository
 import javax.inject.Inject
 
 class GetCastUseCase @Inject constructor(

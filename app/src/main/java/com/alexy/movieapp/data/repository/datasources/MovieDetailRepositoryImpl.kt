@@ -1,11 +1,11 @@
-package com.example.movieapp.data.repository.datasources
+package com.alexy.movieapp.data.repository.datasources
 
-import com.example.movieapp.data.data.cache.database.db.MovieDatabase
-import com.example.movieapp.data.data.network.ApiService
-import com.example.movieapp.data.repository.mapper.toDomain
-import com.example.movieapp.domain.models.Actor
-import com.example.movieapp.domain.models.MovieShow
-import com.example.movieapp.domain.repositories.DetailRepository
+import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
+import com.alexy.movieapp.data.data.network.ApiService
+import com.alexy.movieapp.data.repository.mapper.toDomain
+import com.alexy.movieapp.domain.models.Actor
+import com.alexy.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.domain.repositories.DetailRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

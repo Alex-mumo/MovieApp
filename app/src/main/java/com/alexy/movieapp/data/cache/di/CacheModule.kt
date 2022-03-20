@@ -1,7 +1,7 @@
-package com.example.movieapp.data.cache.di
+package com.alexy.movieapp.data.cache.di
 
 import androidx.room.Room
-import com.example.movieapp.data.data.cache.database.db.MovieDatabase
+import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 

@@ -1,7 +1,7 @@
-package com.example.movieapp.data.repository.mapper
+package com.alexy.movieapp.data.repository.mapper
 
-import com.example.movieapp.data.cache.database.entity.Movie
-import com.example.movieapp.data.data.network.models.MovieDto
+import com.alexy.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.data.network.models.MovieDto
 
 internal fun MovieDto.toEntity(category: String?): Movie {
     return Movie(

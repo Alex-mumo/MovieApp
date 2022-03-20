@@ -1,8 +1,8 @@
-package com.example.movieapp.presentation.ui.activity
+package com.alexy.movieapp.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.movieapp.databinding.ActivityMainBinding
+import com.alexy.movieapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

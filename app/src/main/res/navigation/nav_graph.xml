@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.movieapp.data.ui.fragment.SplashFragment"
+        android:name="com.alexy.movieapp.data.ui.fragment.SplashFragment"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_movieFragment"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieFragment"
-        android:name="com.example.movieapp.presentation.ui.fragment.MovieFragment"
+        android:name="com.alexy.movieapp.presentation.ui.fragment.MovieFragment"
         android:label="Movie Fragment"
         tools:layout="@layout/fragment_movie" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.movieapp.presentation.ui.fragment.DetailFragment"
+        android:name="com.alexy.movieapp.presentation.ui.fragment.DetailFragment"
         android:label="Detail Fragment"
         tools:layout="@layout/fragment_detail" >
         <action

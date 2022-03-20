@@ -1,6 +1,6 @@
-package com.example.movieapp.presentation.utils
+package com.alexy.movieapp.presentation.utils
 
-import com.example.movieapp.domain.models.MovieShow
+import com.alexy.movieapp.domain.models.MovieShow
 
 sealed class Resource {
     object Loading : Resource()

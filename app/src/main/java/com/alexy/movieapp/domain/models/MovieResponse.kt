@@ -1,6 +1,6 @@
-package com.example.movieapp.domain.models
+package com.alexy.movieapp.domain.models
 
-import com.example.movieapp.data.cache.database.entity.Movie
+import com.alexy.movieapp.data.cache.database.entity.Movie
 
 data class MovieResponse(
     val errorMessage: String?,
