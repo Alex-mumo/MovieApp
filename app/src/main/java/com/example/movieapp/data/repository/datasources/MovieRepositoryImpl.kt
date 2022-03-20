@@ -11,11 +11,11 @@ import com.example.movieapp.domain.models.MovieShow
 import com.example.movieapp.domain.repositories.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class MovieRepositoryImpl constructor(
+class MovieRepositoryImpl @Inject constructor(
     private val movieDatabase: MovieDatabase,
     private val apiService: ApiService): MovieRepository{
-
     private val _popularMovies = MutableLiveData<List<Movie>>()
 
     init {
@@ -23,7 +23,6 @@ class MovieRepositoryImpl constructor(
             Coroutines.io { saveMovies(it) }
         }
     }
-
     private suspend fun saveMovies(movie: List<Movie>) {
         movieDatabase.movieDao().saveMovies(movie)
     }

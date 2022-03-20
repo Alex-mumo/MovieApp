@@ -8,8 +8,9 @@ import com.example.movieapp.domain.models.MovieShow
 import com.example.movieapp.domain.repositories.DetailRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class MovieDetailRepositoryImpl constructor(
+class MovieDetailRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val movieDatabase: MovieDatabase): DetailRepository {
 

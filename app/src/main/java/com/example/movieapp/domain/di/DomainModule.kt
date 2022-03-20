@@ -23,5 +23,4 @@ object DomainModule {
     @Singleton
     fun providesMovieUseCase(movieRepository: MovieRepository) =
         GetMovieUseCase(movieRepository)
-
 }

@@ -7,5 +7,4 @@ import kotlinx.coroutines.flow.Flow
 interface DetailRepository {
     suspend fun getMovie(category: String): Flow<List<MovieShow>>
     suspend fun getMovieCast(id: String): List<Actor>
-
 }
