@@ -3,6 +3,7 @@ package com.alexy.movieapp.presentation.ui.fragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -34,13 +35,13 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
                     viewModel.popularMovies.collect { resource ->
                         when(resource) {
                             is Resource.Loading -> {
-
+                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
                             }
                             is Resource.Success -> {
                                 fetchMovies(resource.data)
                             }
                             is Resource.Error -> {
-                                TODO()
+                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
                             }
                         }
                     }

@@ -25,7 +25,6 @@ class MovieRepositoryImpl  constructor(
             Coroutines.io { saveMovies(it) }
         }
     }
-
     override suspend fun fetchMovies(): Flow<List<MovieShow>> {
         val isCacheAvailable = movieDatabase.movieDao().isCacheAvailable(category = POPULAR_MOVIE) > 0
         return if (isCacheAvailable) {
