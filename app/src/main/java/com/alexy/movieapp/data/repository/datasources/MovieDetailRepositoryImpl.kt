@@ -1,7 +1,7 @@
 package com.alexy.movieapp.data.repository.datasources
 
 import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
-import com.alexy.movieapp.data.data.network.ApiService
+import com.alexy.movieapp.data.network.ApiService
 import com.alexy.movieapp.data.repository.mapper.toDomain
 import com.alexy.movieapp.domain.models.Actor
 import com.alexy.movieapp.domain.models.MovieShow

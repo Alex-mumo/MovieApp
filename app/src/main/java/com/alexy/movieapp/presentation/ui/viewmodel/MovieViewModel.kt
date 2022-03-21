@@ -6,7 +6,6 @@ import com.alexy.movieapp.presentation.utils.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import java.io.IOException
 import java.net.UnknownHostException
 

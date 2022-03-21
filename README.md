@@ -4,20 +4,20 @@
 - Build system: [Gradle]().
 </br>
 
-- [Prerequisite](prerequisite)
+- [Prerequisite](##prerequisite)
 - [TechStack](##techstack)
 - [Architecture](##architecture)
 - [Screenshots](##screenshots)
 - [HelpfulResources](##helpresources)
 
 ## Prerequisite
--To run the application to need to [Clone](clone).
--Install Android Studio. 
+- To run the application to need to [Clone](clone).
+- Android Studio. 
 
 ## TechStack
 - [Jetpack]() -
 - [Kotlin]() - Statically typed, general purpose programming language.
-- [Dagger-Hilt]() - Dependency injection framework.
+- [Koin]() 
 - [View Binding]() - Support library that allows binding of UI components in layouts.
 - [Coroutines]() - Perform background operations.
 - [Retrofit]() - Type-safe REST client for Android and Java.

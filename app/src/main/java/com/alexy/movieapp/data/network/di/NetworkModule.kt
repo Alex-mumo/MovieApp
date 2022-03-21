@@ -1,6 +1,6 @@
 package com.alexy.movieapp.data.network.di
 
-import com.alexy.movieapp.data.data.network.ApiService
+import com.alexy.movieapp.data.network.ApiService
 import com.alexy.movieapp.presentation.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
