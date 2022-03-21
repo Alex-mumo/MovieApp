@@ -15,18 +15,19 @@
 - Android Studio. 
 
 ## TechStack
-- [Jetpack]() -
+- [OkHttp-Logging-Interceptor] - Logs Http request and response data.
 - [Kotlin]() - Statically typed, general purpose programming language.
-- [Koin]() 
+- [Koin]() - Dependency injection library.
 - [View Binding]() - Support library that allows binding of UI components in layouts.
 - [Coroutines]() - Perform background operations.
 - [Retrofit]() - Type-safe REST client for Android and Java.
 - [Room]() - Persistence library that provides an abstraction layer over SQLite.
 - [LiveData]() - Observable data holder.
-- [Lifecyle]() - 
+- [Lifecyle]() - Perform actions in response to change in the lifecycle status of another components. 
 - [ViewModel]() - store and manage UI-related data in a lifecycle concious way.
 - [Timber]() - Extensible android logger.
-
+- [Flow]() - Built on top of coroutines to provide multiple values.
+- []
 ## Architecture
 - MVVM
 <img src="resources/arch_clean.png" width="100%"> 
