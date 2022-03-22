@@ -1,8 +1,6 @@
 package com.alexy.movieapp.data.repository.utils
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 object Coroutines {
     fun main(work: suspend (() -> Unit)) =

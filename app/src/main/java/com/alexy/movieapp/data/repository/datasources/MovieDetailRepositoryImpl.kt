@@ -1,6 +1,6 @@
 package com.alexy.movieapp.data.repository.datasources
 
-import com.alexy.movieapp.data.data.cache.database.db.MovieDatabase
+import com.alexy.movieapp.data.cache.database.db.MovieDatabase
 import com.alexy.movieapp.data.network.ApiService
 import com.alexy.movieapp.data.repository.mapper.toDomain
 import com.alexy.movieapp.domain.models.Actor
@@ -12,7 +12,8 @@ import kotlinx.coroutines.flow.map
 
 class MovieDetailRepositoryImpl constructor(
     private val apiService: ApiService,
-    private val movieDatabase: MovieDatabase): DetailRepository {
+    private val movieDatabase: MovieDatabase
+): DetailRepository {
 
     override suspend fun getMovie(category: String): Flow<List<MovieShow>> {
         val databaseResponse = movieDatabase.movieDao().fetchMovies(category)
