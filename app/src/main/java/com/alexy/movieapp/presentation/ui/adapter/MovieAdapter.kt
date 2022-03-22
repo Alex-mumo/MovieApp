@@ -18,7 +18,7 @@ class MovieAdapter(private val movies: List<MovieShow>) : ListAdapter<Movie, Mov
     inner class MovieViewHolder(val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
             Glide.with(binding.imageurl)
-                .load(movie.title)
+                .load(movie.image)
                 .placeholder(R.drawable.ic_launcher_background)
                 .centerCrop()
                 .into(binding.imageurl) }

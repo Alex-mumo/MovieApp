@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -20,6 +21,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
     private var _binding: FragmentMovieBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MovieViewModel by viewModel()
+    private lateinit var movieAdapter: MovieAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,30 +32,72 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
 
     private fun setUpUi() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.popularMovies.collect { result ->
+                when(result) {
+                    is Resource.Success -> {
+                        binding.progressBar.isVisible = false
+                        binding.movieRecycler.isVisible = true
+                        if (result.data.isEmpty()) {
+                            Toast.makeText(requireContext(), "No Movies")
+                        } else {
+
+                        }
+                    }
+                    is Resource.Error -> {
+
+                    }
+                    is Resource.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+
+                }
+            }
+        }
+
+
+        /*
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
                 launch {
                     viewModel.popularMovies.collect { resource ->
                         when(resource) {
                             is Resource.Loading -> {
-                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                                binding.progressBar.isVisible = true
+                                //Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
                             }
                             is Resource.Success -> {
-                                fetchMovies(resource.data)
+                                binding.progressBar.isVisible = false
+                                binding.movieRecycler.isVisible = true
+                                if(resource.data.isEmpty()){
+                                    Toast.makeText(requireContext(), "No Movies", Toast.LENGTH_LONG).show()
+                                } else {
+                                    val movieShow = resource.data
+                                    movieAdapter.submitList(movieShow)
+                                    binding.movieRecycler.adapter = movieAdapter
+
+                                }
+
+                            //fetchMovies(resource.data)
+
                             }
                             is Resource.Error -> {
-                                Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
+                                //Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
                             }
                         }
                     }
                 }
             }
-        }
+        }*/
     }
-
+    /*
     private fun fetchMovies(movies: List<MovieShow>) {
-        val movieAdapter = MovieAdapter(movies)
-        binding.movieRecycler.adapter = movieAdapter
-    }
+        if (!movies.isNullOrEmpty()){
+            val movieAdapter = MovieAdapter(movies)
+            binding.movieRecycler.adapter = movieAdapter
+
+        }
+
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

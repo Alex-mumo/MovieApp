@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.alexy.movieapp.data.cache.database.entity.Movie
 import com.alexy.movieapp.data.cache.database.db.MovieDatabase
 import com.alexy.movieapp.data.network.ApiService
-import com.alexy.movieapp.data.repository.utils.Coroutines
 import com.alexy.movieapp.data.repository.mapper.toDomain
 import com.alexy.movieapp.data.repository.mapper.toEntity
 import com.alexy.movieapp.domain.models.MovieShow
@@ -16,15 +15,14 @@ import kotlinx.coroutines.flow.map
 class MovieRepositoryImpl  constructor(
     private val movieDatabase: MovieDatabase,
     private val apiService: ApiService
-): MovieRepository{
-
+): MovieRepository {
     private val _popularMovies = MutableLiveData<List<Movie>>()
 
-    init {
+    /*init {
         _popularMovies.observeForever {
             Coroutines.io { saveMovies(it) }
         }
-    }
+    }*/
     override suspend fun fetchMovies(): Flow<List<MovieShow>> {
         val isCacheAvailable = movieDatabase.movieDao().isCacheAvailable(category = POPULAR_MOVIE) > 0
         return if (isCacheAvailable) {
@@ -37,7 +35,7 @@ class MovieRepositoryImpl  constructor(
             cacheResponse.map { it.map { movieList -> movieList.toDomain() } }
         }
     }
-    private suspend fun saveMovies(movie: List<Movie>) {
+   /* private suspend fun saveMovies(movie: List<Movie>) {
         movieDatabase.movieDao().saveMovies(movie)
-    }
+    }*/
 }
