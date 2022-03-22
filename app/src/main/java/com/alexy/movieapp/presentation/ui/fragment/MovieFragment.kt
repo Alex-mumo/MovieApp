@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.alexy.movieapp.R
+import com.alexy.movieapp.data.cache.database.entity.Movie
 import com.alexy.movieapp.presentation.ui.adapter.MovieAdapter
 import com.alexy.movieapp.presentation.ui.viewmodel.MovieViewModel
 import com.alexy.movieapp.databinding.FragmentMovieBinding
@@ -20,9 +21,10 @@ import kotlinx.coroutines.launch
 
 class MovieFragment : Fragment(R.layout.fragment_movie) {
     private var _binding: FragmentMovieBinding? = null
+    private val movieAdapter = MovieAdapter()
     private val binding get() = _binding!!
     private val viewModel: MovieViewModel by viewModel()
-    private lateinit var movieAdapter: MovieAdapter
+   // private lateinit var movieAdapter: MovieAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,14 +37,14 @@ class MovieFragment : Fragment(R.layout.fragment_movie) {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED){
                 launch {
-                    viewModel.popularMovies.collect { resource ->
-                        when(resource) {
+                    viewModel.popularMovies.collect {
+                        when(it) {
                             is Resource.Loading -> {
                                 binding.progressBar.isVisible = true
                             }
                             is Resource.Success -> {
                                 binding.progressBar.isVisible = false
-                                fetchMovies(resource.data)
+                                fetchMovies(it.data as List<MovieShow>)
                             }
                             is Resource.Error -> {
                                 Toast.makeText(requireContext(), "Error", Toast.LENGTH_LONG).show()
