@@ -15,7 +15,7 @@
 - Android Studio. 
 
 ## TechStack
-- [OkHttp-Logging-Interceptor] - Logs Http request and response data.
+- [OkHttpLoggingInterceptor] - Logs Http request and response data.
 - [Kotlin]() - Statically typed, general purpose programming language.
 - [Koin]() - Dependency injection library.
 - [View Binding]() - Support library that allows binding of UI components in layouts.
